@@ -1,3 +1,18 @@
+$(function(){
+    
+	// 背景色を変える
+	$("#morning").hover(function() {
+        $("body").removeClass('night');
+        $("body").addClass('morning');
+        
+	});
+    // 背景色を変える
+	$("#night").hover(function() {
+        $("body").removeClass('morning');
+		$("body").addClass('night');
+	});
+
+});
 function morning() {
 
     var urls = [
@@ -26,12 +41,6 @@ function goodNight() {
 
 document.getElementById("morning").onclick = function () {
     morning();
-}
-document.getElementById("morning_sys3").onclick = function () {
-    morningSys3();
-}
-document.getElementById("mid").onclick = function () {
-    mid();
 }
 document.getElementById("goodNight").onclick = function () {
     goodNight();
