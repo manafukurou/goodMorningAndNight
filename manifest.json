@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "便利機能まとめ",
+  "description": "便利機能まとめ",
+  "version": "1.0.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "クリック！"
+
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs","http://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "jquery-3.2.1.min.js"
+    ]
+  }
+}
