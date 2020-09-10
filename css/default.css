@@ -1,4 +1,4 @@
-/* .button {
+.button {
     display: inline-block;
     width: 200px;
     height: 54px;
@@ -47,7 +47,7 @@
     background: #333;
     -webkit-transform: scale(1);
     transform: scale(1);
-} */
+}
 
 .morning {
     background-image:url("../img/morning.jpg");

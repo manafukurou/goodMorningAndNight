@@ -10,7 +10,22 @@ $(function(){
 	$("#night").hover(function() {
         $("body").removeClass('morning');
 		$("body").addClass('night');
-	});
+    });
+    
+    key = "aaa";
+    val = '{"morning": ["aaa","bbb","ccc"],"night": []}';
+
+    //保存
+    localStorage.setItem(key, val);
+    //読み込み
+    hoge = localStorage.getItem(key);
+    
+    const obj = JSON.parse(hoge);
+    alert(hoge);
+    for (const elem of obj.morning) {
+        alert(elem);
+      }
+   
 
 });
 function morning() {
