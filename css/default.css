@@ -48,6 +48,44 @@
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+.addButton {
+	display: block;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #EC407A;
+	border: 2px solid #EC407A;
+	border-radius: 3px;
+	transition: .4s;
+}
+.configButton {
+	position: relative;
+	display: block;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
+	background: #1A237E;
+	transition: .4s;
+	border-radius: 4px;
+}
+
+.deleteButton {
+	display: block;
+	position: relative;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: #455A64;
+	border:1px solid #fff;
+	overflow: hidden;
+}
 
 .morning {
     background-image:url("../img/morning.jpg");
