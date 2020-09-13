@@ -1,53 +1,73 @@
-.button {
-    display: inline-block;
-    width: 200px;
-    height: 54px;
-    text-align: center;
-    text-decoration: none;
-    line-height: 54px;
-    outline: none;
+/*****--------------------------
+    実行画面
+----------------------****/
+
+.content{
+    margin-top:50px;
+    margin-bottom:50px;
 }
-.button::before,
-.button::after {
-    position: absolute;
-    z-index: -1;
-    display: block;
-    content: '';
-}
-.button,
-.button::before,
-.button::after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all .3s;
-    transition: all .3s;
-}
-.button {
+.buttonItem{
     position: relative;
-    z-index: 2;
-    background-color: #fff;
-    border: 2px solid #AAcc00;
-    color: #333;
-    line-height: 50px;
-    overflow: hidden;
+    width:280px;
+    margin: 5px auto;
 }
-.button:hover {
-    color: #fff;
+
+.executeButton{
+    display: inline-block;
+    padding: 0.6em 1em 0.2em 1em;
+    width:200px;
+    height:30px;
+    margin :10px;
+    text-decoration: none;
+    color: #0a476c;
+    border: solid 2px #0a476c;
+    background-color:white;
+    border-radius: 3px;
+    transition: .4s;
+    text-align:center;
+    font-size:15px;
 }
-.button::after {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-transform: scale(.5);
-    transform: scale(.5);
+
+.executeButton:hover {
+    background: #0a476c;
+    color: white;
 }
-.button:hover::after {
-    background: #333;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+
+/*****
+    設定ボタン
+****/
+.configButton {
+    background-image: url("../img/config.png");
+    background-size: cover;
+    width:30px;
+    height:30px;
+    position: absolute;
+    top :15px;
+    right: 5px;
 }
+
+
+/*****--------------------------
+    設定画面
+----------------------****/
+
+/*****
+    設定タイトル
+****/
+
+.configTitle{
+    padding: .5em .75em;
+    background-color: #f6f6f6;
+    border-radius: 6px;
+    width:300px;
+    margin: 2px auto;
+    text-align:center;
+}
+.configTitle:first-letter {
+margin-right: .1em;
+font-size: 1.5em;
+}
+
 
 /*****
     設定追加ボタン
@@ -62,23 +82,8 @@
 
 }
 
-/*****
-    設定ボタン
-****/
-.configButton {
-	position: relative;
-	display: block;
-	width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	font-weight: bold;
-	text-decoration: none;
-	color: #FFF;
-	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
-	background: #1A237E;
-	transition: .4s;
-	border-radius: 4px;
-}
+
+
 /*****
     戻るボタン
 ****/
@@ -114,14 +119,20 @@
     background-color: rgb(225, 225, 225);
 }
 
-/*****
+/*****----------------------
     背景
-****/
+----------------------****/
 .morning {
     background-image:url("../img/morning.jpg");
+    background-size: cover;
+}
+.noon {
+    background-image:url("../img/noon.jpg");
+    background-size: cover;
 }
 .night {
     background-image:url("../img/night.jpg");
+    background-size: cover;
 }
 .config{
     background-image:url("../img/metal.jpg");
