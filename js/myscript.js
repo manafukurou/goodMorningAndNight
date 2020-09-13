@@ -21,12 +21,16 @@ $(function(){
     function viewTab(key) {
         data = localStorage.getItem(key);
         const obj = JSON.parse(data);
-        for (const elem of obj.urls) {
-            if(elem){
-                chrome.tabs.create({
-                    url: elem
-                });    
+
+        if(obj){
+            for (const elem of obj.urls) {
+                if(elem){
+                    chrome.tabs.create({
+                        url: elem
+                    });    
+                }
             }
+    
         }
     }
 
