@@ -4,14 +4,20 @@ $(function(){
     var idIncrement = 1;
     var type = getParam("type");
     var listByType = localStorage.getItem(type);
-
-    //$("body").addClass(type);
+    var dataExist = false ;
+    var defaultTitle = "URLを入力してください";
+     $("body").addClass("config");
 
     if(listByType){
         var objects  = JSON.parse(listByType);
         for (const obj of objects.urls) {
             addForm(obj);
+            dataExist = true ;
         }    
+    }
+
+    if(!dataExist){
+        addForm("");
     }
     $(document).on("click", ".deleteButton", function () {
         var deleteId = $(this).data("did");
@@ -82,8 +88,21 @@ $(function(){
     function addForm(url){
         idIncrement++;
         var id = "did_"+idIncrement;
-        var title = getUrlTitle(url);
-        $('#form_area').append('<div id="'+id+'"><div class="title">'+title+'</div><input data-iid="'+id+'" type="text" value="'+url+'" class="url" name="url[]"><div class="deleteButton" data-did="'+id+'">Delete</div></div>');
+        var title = "";
+        var addTag = "";
+
+        if(url == ""){
+            title = defaultTitle ;
+        }else{
+            title = getUrlTitle(url);
+        }
+        addTag += '<div id="'+id+'" class="inputItem">';
+        addTag += '<div class="title">'+title+'</div>';
+        addTag += '<input data-iid="'+id+'" type="text" value="'+url+'" class="url" name="url[]">';
+        addTag += '<div class="deleteButton" data-did="'+id+'"></div>';
+        addTag += '</div>';
+        //$('#form_area').append('<div id="'+id+'"><div class="title">'+title+'</div><input data-iid="'+id+'" type="text" value="'+url+'" class="url" name="url[]"><div class="deleteButton" data-did="'+id+'">Delete</div></div>');
+        $('#form_area').append(addTag);
     }
     
     function getUrlTitle(url){

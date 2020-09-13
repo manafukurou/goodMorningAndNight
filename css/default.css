@@ -48,17 +48,23 @@
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+
+/*****
+    設定追加ボタン
+****/
 .addButton {
-	display: block;
-	width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	text-decoration: none;
-	color: #EC407A;
-	border: 2px solid #EC407A;
-	border-radius: 3px;
-	transition: .4s;
+
+    background-image: url("../img/add.png");
+    background-size: cover;
+    width:30px;
+    height:30px;
+    margin: 0 auto;
+
 }
+
+/*****
+    設定ボタン
+****/
 .configButton {
 	position: relative;
 	display: block;
@@ -73,23 +79,50 @@
 	transition: .4s;
 	border-radius: 4px;
 }
-
+/*****
+    戻るボタン
+****/
+.backButton{
+    background-image: url("../img/back.png");
+    background-size: cover;
+    width:50px;
+    height:50px;
+    position: absolute;
+    left: 3px;
+    bottom:3px;
+}
+/*****
+    削除ボタン
+****/
 .deleteButton {
-	display: block;
-	position: relative;
-	width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	text-decoration: none;
-	color: #fff;
-	background: #455A64;
-	border:1px solid #fff;
-	overflow: hidden;
+    background-image: url("../img/delete.png");
+    background-size: cover;
+    width:30px;
+    height:30px;
+    position: absolute;
+    right: -10px;
+    top:-10px;
+}
+/*****
+    inputItem
+****/
+.inputItem{
+    padding: 5px ;
+    margin: 12px;
+    border: 2px solid #000;
+    position: relative;
+    background-color: rgb(225, 225, 225);
 }
 
+/*****
+    背景
+****/
 .morning {
     background-image:url("../img/morning.jpg");
 }
 .night {
     background-image:url("../img/night.jpg");
+}
+.config{
+    background-image:url("../img/metal.jpg");
 }
