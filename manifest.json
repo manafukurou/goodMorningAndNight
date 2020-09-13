@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "good morning & night",
-  "description": "朝と夜の作業まとめ",
+  "name": "朝と夜の作業まとめ",
+  "description": "あらかじめ登録したurlをまとめてタブで開きます！朝・夜の定常業務で開くURLを登録しておくと便利です！",
   "version": "1.0.0",
 
   "browser_action": {
