@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "朝と夜の作業まとめ",
-  "description": "あらかじめ登録したurlをまとめてタブで開きます！朝・夜の定常業務で開くURLを登録しておくと便利です！",
+  "description": "あらかじめ登録したurlをまとめてタブで開きます！朝・夜の定常業務で開く",
   "version": "1.0.0",
 
   "browser_action": {
@@ -16,7 +16,7 @@
 },
   "permissions": [
     "activeTab",
-    "storage",
+    "bookmarks",
     "tabs","http://*/*"
   ]
 }

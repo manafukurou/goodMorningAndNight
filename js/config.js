@@ -38,8 +38,24 @@ $(function(){
     $('#addButton').on('click', function() {
         addForm("");
     });
+
+
+    $('#testButton').on('click', function() {
+        save();
+    });
+
+    
     //保存処理
     function save(){
+
+        alert("save");
+
+        $(".inputItem").each(function(i, elem) {
+         
+            alert($(elem));
+        });
+        return ;
+
         var urlsData = Array();
         $('.url').each(function(){
             urlsData.push($(this).val()) ;
@@ -52,34 +68,34 @@ $(function(){
         localStorage.setItem(type, complexDataJSON);
     }
     //テキストボックスのフォーカスが外れたら発火
-    $(document).on('blur', 'input[type="text"]', function() {
-        var inputId = $(this).data("iid");
-        var inputUrl = $(this).val();
-        var inputTitle = getUrlTitle(inputUrl);
-        if(inputTitle){
-            $("#"+inputId).find(".title").text(inputTitle);
-            save();
-        }else{
-            $.ajax({
-                url:inputUrl,
-                type: 'GET',
-                cache: false,
-                dataType: 'html'
-              }).done(function(html) {
-                var t = html.match(/<title>(.*)<\/title>/);
-                var title = t[1];
-                $("#"+inputId).find(".title").text(title);
-                setUrlTitle(inputUrl,title);
-                save();
+    // $(document).on('blur', 'input[type="text"]', function() {
+    //     var inputId = $(this).data("iid");
+    //     var inputUrl = $(this).val();
+    //     var inputTitle = getUrlTitle(inputUrl);
+    //     if(inputTitle){
+    //         $("#"+inputId).find(".title").text(inputTitle);
+    //         save();
+    //     }else{
+    //         $.ajax({
+    //             url:inputUrl,
+    //             type: 'GET',
+    //             cache: false,
+    //             dataType: 'html'
+    //           }).done(function(html) {
+    //             var t = html.match(/<title>(.*)<\/title>/);
+    //             var title = t[1];
+    //             $("#"+inputId).find(".title").text(title);
+    //             setUrlTitle(inputUrl,title);
+    //             save();
     
-              }).fail(function() {
-                alert('エラーが起きました');
-                $("#"+inputId).find("input").val("");
-              }).always(function() {
-                console.log('complete');
-              });
-        }
-    });
+    //           }).fail(function() {
+    //             alert('エラーが起きました');
+    //             $("#"+inputId).find("input").val("");
+    //           }).always(function() {
+    //             console.log('complete');
+    //           });
+    //     }
+    // });
     //フォーム追加処理
     function addForm(url){
         idIncrement++;
@@ -92,8 +108,9 @@ $(function(){
         }else{
             title = getUrlTitle(url);
         }
-        addTag += '<div id="'+id+'" class="inputItem">';
-        addTag += '<div class="title">'+title+'</div>';
+        addTag += '<div id="'+id+'" class="inputItem" >';
+    
+        addTag += '<input type="text" value="'+title+'" class="title" name="title[]">';
         addTag += '<input data-iid="'+id+'" type="text" value="'+url+'" class="url" name="url[]">';
         addTag += '<div class="deleteButton" data-did="'+id+'"></div>';
         addTag += '</div>';
