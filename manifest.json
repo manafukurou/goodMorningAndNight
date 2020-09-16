@@ -3,7 +3,7 @@
 
   "name": "朝と夜の作業まとめ",
   "description": "あらかじめ登録したurlをまとめてタブで開きます！朝・夜の定常業務で開く",
-  "version": "1.0.0",
+  "version": "1.1.0",
 
   "browser_action": {
     "default_popup": "popup.html",
