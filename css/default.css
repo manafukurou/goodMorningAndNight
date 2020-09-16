@@ -137,3 +137,17 @@ font-size: 1.5em;
 .config{
     background-image:url("../img/metal.jpg");
 }
+
+/*****----------------------
+    共通 input
+----------------------****/
+input[type="text"]{
+    border:0;
+    padding:10px;
+    font-size:1.3em;
+    font-family:Arial, sans-serif;
+    color:rgb(79, 79, 79);
+    border:solid 1px rgb(79, 79, 79);
+    width:80%;
+    margin: 3px auto;
+}

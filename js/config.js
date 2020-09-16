@@ -19,13 +19,13 @@ $(function(){
     if(listByType){
         var objects  = JSON.parse(listByType);
         for (const obj of objects.urls) {
-            addForm(obj);
+            addForm(obj.title,obj.url);
             dataExist = true ;
         }    
     }
     //フォーム0件の場合１件デフォルト表示
     if(!dataExist){
-        addForm("");
+        addForm("","");
     }
 
     //削除ボタン
@@ -36,13 +36,17 @@ $(function(){
     });
     //追加ボタン    
     $('#addButton').on('click', function() {
-        addForm("");
+        addForm("","");
     });
+    
     //保存処理
     function save(){
+
         var urlsData = Array();
-        $('.url').each(function(){
-            urlsData.push($(this).val()) ;
+
+        $(".inputItem").each(function(i, elem) {
+            var tempObj = {title: $(elem).find(".title").val(), url: $(elem).find(".url").val()};
+            urlsData.push(tempObj) ;
         });
 
         var jsonArray = {
@@ -50,75 +54,27 @@ $(function(){
         }
         let complexDataJSON = JSON.stringify(jsonArray);
         localStorage.setItem(type, complexDataJSON);
+        return ;
     }
     //テキストボックスのフォーカスが外れたら発火
     $(document).on('blur', 'input[type="text"]', function() {
-        var inputId = $(this).data("iid");
-        var inputUrl = $(this).val();
-        var inputTitle = getUrlTitle(inputUrl);
-        if(inputTitle){
-            $("#"+inputId).find(".title").text(inputTitle);
-            save();
-        }else{
-            $.ajax({
-                url:inputUrl,
-                type: 'GET',
-                cache: false,
-                dataType: 'html'
-              }).done(function(html) {
-                var t = html.match(/<title>(.*)<\/title>/);
-                var title = t[1];
-                $("#"+inputId).find(".title").text(title);
-                setUrlTitle(inputUrl,title);
-                save();
-    
-              }).fail(function() {
-                alert('エラーが起きました');
-                $("#"+inputId).find("input").val("");
-              }).always(function() {
-                console.log('complete');
-              });
-        }
+        save();
     });
     //フォーム追加処理
-    function addForm(url){
+    function addForm(title,url){
         idIncrement++;
         var id = "did_"+idIncrement;
-        var title = "";
         var addTag = "";
 
-        if(url == ""){
-            title = defaultTitle ;
-        }else{
-            title = getUrlTitle(url);
-        }
-        addTag += '<div id="'+id+'" class="inputItem">';
-        addTag += '<div class="title">'+title+'</div>';
-        addTag += '<input data-iid="'+id+'" type="text" value="'+url+'" class="url" name="url[]">';
+        addTag += '<div id="'+id+'" class="inputItem" >';
+        addTag += '<input type="text" value="'+title+'" class="title" name="title[]" placeholder="タイトル">';
+        addTag += '<input data-iid="'+id+'" type="text" value="'+url+'" class="url" name="url[]" placeholder="URLを入力してください">';
         addTag += '<div class="deleteButton" data-did="'+id+'"></div>';
         addTag += '</div>';
         $('#form_area').append(addTag);
     }
-    //タイトル取得　(ストレージにキャッシュしてあるテキストを取得する)
-    function getUrlTitle(url){
-        key = encodeKey(url);
-        title = localStorage.getItem(key);
-        if(title){
-            return title;
-        }
-        return "";
 
-    }
-    //タイトル保存　(ストレージにキャッシュしておく)
-    function setUrlTitle(url,title){
-        key = encodeKey(url);
-        localStorage.setItem(key, title);
 
-    }
-    //キャッシュ用のキー生成
-    function encodeKey(key){
-        return "url:"+window.btoa(unescape(encodeURIComponent(key)));
-    }
     //getパラメータ取得
     function getParam(name, url) {
         if (!url) url = window.location.href;
