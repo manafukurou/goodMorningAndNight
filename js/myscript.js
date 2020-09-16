@@ -24,13 +24,12 @@ $(function(){
 
         if(obj){
             for (const elem of obj.urls) {
-                if(elem){
+                if(elem.url){
                     chrome.tabs.create({
-                        url: elem
+                        url: elem.url
                     });    
                 }
             }
-    
         }
     }
 

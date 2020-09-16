@@ -15,8 +15,5 @@
     "128": "icons/icon128.png"
 },
   "permissions": [
-    "activeTab",
-    "bookmarks",
-    "tabs","http://*/*"
   ]
 }
