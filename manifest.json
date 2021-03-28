@@ -1,11 +1,11 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "朝と夜の作業まとめ",
   "description": "あらかじめ登録したurlをまとめてタブで開きます！朝・夜の定常業務で開く",
   "version": "1.1.0",
 
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_title": "open"
   },
@@ -15,5 +15,7 @@
     "128": "icons/icon128.png"
 },
   "permissions": [
+    "tabGroups",
+    "tabs"
   ]
 }
