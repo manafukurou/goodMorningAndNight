@@ -1,7 +1,5 @@
 $(function(){
-
-
-
+    
     $('#morning').on('click', function() {
         viewTab("morning");
     });
