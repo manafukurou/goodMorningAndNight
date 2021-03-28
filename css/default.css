@@ -5,6 +5,7 @@
 .content{
     margin-top:50px;
     margin-bottom:50px;
+    text-align:center;
 }
 .buttonItem{
     position: relative;
@@ -30,6 +31,27 @@
 
 .executeButton:hover {
     background: #0a476c;
+    color: white;
+}
+
+.configureButton{
+    display: inline-block;
+    padding: 0.6em 1em 0.2em 1em;
+    width:200px;
+    height:30px;
+    margin :10px;
+    text-decoration: none;
+    color: #556c0a;
+    border: solid 2px #556c0a;
+    background-color:white;
+    border-radius: 3px;
+    transition: .4s;
+    text-align:center;
+    font-size:15px;
+}
+
+.configureButton:hover {
+    background: #556c0a;
     color: white;
 }
 
