@@ -5,11 +5,7 @@ $(function(){
     var dataExist = false ;
 
     //タイトル文言
-    var defaultTitle = "URLを入力してください";
-    var configTitle = "夜の作業の設定";
-    if(type == "morning"){
-        configTitle = "朝の作業の設定";
-    }
+    var configTitle = "URLを設定してください";
     $("#configTitle").text(configTitle) ;
 
     //背景画像

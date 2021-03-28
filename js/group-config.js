@@ -57,16 +57,16 @@ $(function(){
     //フォーム追加処理
     function addForm(groupId,color,title){
         idIncrement++;
-        var id = "did_"+idIncrement;
 
         if(groupId == ""){            
             groupId = nowTime()+"_"+idIncrement;
         }
         var addTag = "";
 
+        color = "green";
         addTag += '<div id="'+groupId+'" class="inputItem" >';
         addTag += '<input type="hidden" value="'+groupId+'" class="groupId" name="groupId[]" placeholder="groupId">';
-        addTag += '<input type="text" value="'+color+'" class="color" name="color[]" placeholder="color">';
+        addTag += '<input type="hidden" value="'+color+'" class="color" name="color[]" placeholder="color">';
         addTag += '<input type="text" value="'+title+'" class="title" name="title[]" placeholder="タイトル">';
         addTag += '<div class="deleteButton" data-did="'+groupId+'"></div>';
         addTag += '</div>';
