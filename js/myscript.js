@@ -1,15 +1,6 @@
 $(function(){
 
-    //画像出し分け
-    const date = new Date();
-    const hour = date.getHours() ;
-    if(4 <= hour && hour <= 11 ){
-        $("body").addClass("morning");
-    }else if (12 <= hour && hour <= 17 ){
-        $("body").addClass("noon");
-    }else{
-        $("body").addClass("night");
-    }
+
 
     $('#morning').on('click', function() {
         viewTab("morning");
@@ -23,14 +14,52 @@ $(function(){
         const obj = JSON.parse(data);
 
         if(obj){
-            for (const elem of obj.urls) {
-                if(elem.url){
-                    chrome.tabs.create({
-                        url: elem.url
-                    });    
-                }
-            }
+
+            startTabId = 0;
+            //group作成用のtab作成
+            callbackFuncA = function(tab){
+                startTabId = tab.id;
+                chrome.tabs.group({
+                    tabIds: startTabId
+                },function(groupId){
+                    chrome.tabGroups.update(
+                        groupId,
+                        {
+                            collapsed:true,
+                            color: obj.color,
+                            title: obj.name
+                        },function(TabGroup){
+                            for (const elem of obj.urls) {
+                                if(elem.url){
+                                    chrome.tabs.create({
+                                        url: elem.url,
+                                        active: false
+                                    },function(tab){
+                                        chrome.tabs.group({
+                                            groupId :groupId,
+                                            tabIds: tab.id
+                                        },function(tabGroupId){
+                                            chrome.tabs.remove(startTabId);
+                                        });
+                                    });
+                                }
+                            };
+                        }
+                    );
+                });
+            };
+            chrome.tabs.create({
+                url: "",
+                active: false
+            },callbackFuncA);    
+
+
         }
+
+
+
+
+
     }
 
 });

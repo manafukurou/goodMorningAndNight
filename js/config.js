@@ -50,6 +50,8 @@ $(function(){
         });
 
         var jsonArray = {
+            name: type,
+            color:"blue",
             urls: urlsData
         }
         let complexDataJSON = JSON.stringify(jsonArray);
