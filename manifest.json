@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
 
-  "name": "朝と夜の作業まとめ",
-  "description": "あらかじめ登録したurlをまとめてタブで開きます！朝・夜の定常業務で開く",
-  "version": "2.0.1",
+  "name": "Tabmato",
+  "description": "設定したタブをまとめて開く【Tabmato】",
+  "version": "2.1.0",
 
   "action": {
     "default_popup": "popup.html",
