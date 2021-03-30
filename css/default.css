@@ -1,9 +1,16 @@
 /*****--------------------------
+    共通
+----------------------****/
+
+body {
+    background-color: #f2edd7;
+}
+/*****--------------------------
     実行画面
 ----------------------****/
 
 .content{
-    margin-top:50px;
+    margin-top:20px;
     margin-bottom:50px;
     text-align:center;
 }
@@ -20,8 +27,8 @@
     height:30px;
     margin :10px;
     text-decoration: none;
-    color: #0a476c;
-    border: solid 2px #0a476c;
+    color: #3a6351;
+    border: solid 2px #3a6351;
     background-color:white;
     border-radius: 3px;
     transition: .4s;
@@ -30,7 +37,7 @@
 }
 
 .executeButton:hover {
-    background: #0a476c;
+    background: #3a6351;
     color: white;
 }
 
@@ -41,18 +48,12 @@
     height:30px;
     margin :10px;
     text-decoration: none;
-    color: #556c0a;
-    border: solid 2px #556c0a;
-    background-color:white;
+    color: #f2edd7;
+    background-color:#e48257;
     border-radius: 3px;
     transition: .4s;
     text-align:center;
     font-size:15px;
-}
-
-.configureButton:hover {
-    background: #556c0a;
-    color: white;
 }
 
 /*****
@@ -79,11 +80,13 @@
 
 .configTitle{
     padding: .5em .75em;
-    background-color: #f6f6f6;
+    background-color: #393232;
     border-radius: 6px;
     width:300px;
+    color:#f6f6f6;
     margin: 2px auto;
     text-align:center;
+    margin-top:20px;
 }
 .configTitle:first-letter {
 margin-right: .1em;
@@ -112,11 +115,11 @@ font-size: 1.5em;
 .backButton{
     background-image: url("../img/back.png");
     background-size: cover;
-    width:50px;
-    height:50px;
+    width:30px;
+    height:30px;
     position: absolute;
-    left: 3px;
-    bottom:3px;
+    left: 10px;
+    top:20px;
 }
 /*****
     削除ボタン
@@ -136,30 +139,10 @@ font-size: 1.5em;
 .inputItem{
     padding: 5px ;
     margin: 12px;
-    border: 2px solid #000;
+    border: 2px solid #393232;
     position: relative;
-    background-color: rgb(225, 225, 225);
+    background-color: #f2edd7;
 }
-
-/*****----------------------
-    背景
-----------------------****/
-.morning {
-    background-image:url("../img/morning.jpg");
-    background-size: cover;
-}
-.noon {
-    background-image:url("../img/noon.jpg");
-    background-size: cover;
-}
-.night {
-    background-image:url("../img/night.jpg");
-    background-size: cover;
-}
-.config{
-    background-image:url("../img/metal.jpg");
-}
-
 /*****----------------------
     共通 input
 ----------------------****/
@@ -168,8 +151,8 @@ input[type="text"]{
     padding:10px;
     font-size:1.3em;
     font-family:Arial, sans-serif;
-    color:rgb(79, 79, 79);
-    border:solid 1px rgb(79, 79, 79);
+    color: #393232;
+    border:solid 1px #393232;
     width:80%;
     margin: 3px auto;
 }
