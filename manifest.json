@@ -3,7 +3,7 @@
 
   "name": "Tabmato",
   "description": "設定したタブをまとめて開く【Tabmato】",
-  "version": "2.1.0",
+  "version": "2.2.0",
 
   "action": {
     "default_popup": "popup.html",
