@@ -5,6 +5,13 @@
 body {
     background-color: #f2edd7;
 }
+
+.titleBanner{
+    background-image: url("../img/banner.jpg");
+    background-size:contain;
+    width: 400px;
+    height:100px;
+}
 /*****--------------------------
     実行画面
 ----------------------****/
@@ -118,7 +125,7 @@ font-size: 1.5em;
     width:30px;
     height:30px;
     position: absolute;
-    left: 10px;
+    left: 15px;
     top:20px;
 }
 /*****
