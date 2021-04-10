@@ -2,7 +2,7 @@ $(function(){
     var idIncrement = 0;
     var key = "GROUP-LIST";
     var groupList = localStorage.getItem(key);
-    
+    var colors = ["grey", "blue", "red", "green", "pink", "purple"];
 
     dataExist = false ; 
     //フォーム生成
@@ -24,6 +24,16 @@ $(function(){
         $("#"+deleteId).remove();
         save();
     });
+    //テキストボックスのフォーカスが外れたら発火
+    $(document).on('blur', 'input[type="text"]', function() {
+        save();
+    });
+    //ラジオボックスのフォーカスが外れたら発火
+    $(document).on('change', 'input[type="radio"]', function() {
+        save();
+    });
+    
+
     //追加ボタン    
     $('#addButton').on('click', function() {
         addForm("","","");
@@ -31,14 +41,19 @@ $(function(){
     
     //保存処理
     function save(){
-
         var groupsData = Array();
 
         $(".inputItem").each(function(i, elem) {
+
+            enteredGroupId = $(elem).find(".groupId").val();
+            color_key = "color_"+enteredGroupId;
+            enteredColor = $('input:radio[name="'+color_key+'"]:checked').val();
+            enteredTitle = $(elem).find(".title").val();
+
             var tempObj = {
-                groupId: $(elem).find(".groupId").val(),
-                color: $(elem).find(".color").val(),
-                title: $(elem).find(".title").val()
+                groupId: enteredGroupId,
+                color: enteredColor,
+                title: enteredTitle
             };
             groupsData.push(tempObj) ;
         });
@@ -50,10 +65,7 @@ $(function(){
         localStorage.setItem(key, complexDataJSON);
         return ;
     }
-    //テキストボックスのフォーカスが外れたら発火
-    $(document).on('blur', 'input[type="text"]', function() {
-        save();
-    });
+
     //フォーム追加処理
     function addForm(groupId,color,title){
         idIncrement++;
@@ -63,10 +75,18 @@ $(function(){
         }
         var addTag = "";
 
-        color = "green";
-        addTag += '<div id="'+groupId+'" class="inputItem" >';
+
+        addTag += '<div id="'+groupId+'" class="inputItem form-check" >';
         addTag += '<input type="hidden" value="'+groupId+'" class="groupId" name="groupId[]" placeholder="groupId">';
-        addTag += '<input type="hidden" value="'+color+'" class="color" name="color[]" placeholder="color">';
+
+        for (var colorData of colors) {
+            isChecked = "";
+            if (color == colorData){
+                isChecked = "checked";
+            }
+            addTag += '<input class="'+colorData+'" type="radio" name="color_'+groupId+'" value="'+colorData+'" '+isChecked+'>';
+        }
+        
         addTag += '<input type="text" value="'+title+'" class="title" name="title[]" placeholder="タイトル">';
         addTag += '<div class="deleteButton" data-did="'+groupId+'"></div>';
         addTag += '</div>';
