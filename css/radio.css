@@ -1,0 +1,79 @@
+input[type=checkbox],input[type=radio] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    vertical-align: -0.8rem;
+    transition:all .15s ease-out 0s;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin: .4rem;
+    outline: none;
+    border-radius: 10%;
+}
+
+/* Radio */
+input[type=radio] {
+    border-radius: 50%;
+}
+input[type=radio]:checked:before {
+    transform: scale(1);
+}
+input[type=radio]:before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 3px;
+    transform: scale(0);
+    transition: all ease-out 250ms;
+}
+/* 色 */
+input[type=checkbox].grey,input[type=radio].grey {
+    border: 2px solid #646a6e;
+}
+input[type=checkbox].grey:checked,input[type=checkbox].grey:indeterminate,input[type=radio].grey:checked:before {
+    background: #646a6e;
+}
+
+input[type=checkbox].blue,input[type=radio].blue {
+    border: 2px solid #2578ec;
+}
+input[type=checkbox].blue:checked,input[type=checkbox].blue:indeterminate,input[type=radio].blue:checked:before {
+    background: #2578ec;
+}
+
+input[type=checkbox].red,input[type=radio].red {
+    border: 2px solid #f13939;
+}
+input[type=checkbox].red:checked,input[type=checkbox].red:indeterminate,input[type=radio].red:checked:before {
+    background: #f13939;
+}
+input[type=checkbox].green,input[type=radio].green {
+    border: 2px solid #0b9306;
+}
+input[type=checkbox].green:checked,input[type=checkbox].green:indeterminate,input[type=radio].green:checked:before {
+    background: #0b9306;
+}
+
+input[type=checkbox].pink,input[type=radio].pink {
+    border: 2px solid #fd20d5;
+}
+input[type=checkbox].pink:checked,input[type=checkbox].pink:indeterminate,input[type=radio].pink:checked:before {
+    background: #fd20d5;
+}
+input[type=checkbox].purple,input[type=radio].purple {
+    border: 2px solid #7125e3;
+}
+input[type=checkbox].purple:checked,input[type=checkbox].purple:indeterminate,input[type=radio].purple:checked:before {
+    background: #7125e3;
+}
